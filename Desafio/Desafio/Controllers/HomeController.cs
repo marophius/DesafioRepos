@@ -30,7 +30,9 @@ namespace Desafio.Controllers
             var lista = (from Equipes in _context.Equipes
                          join Colab in _context.Colaboradores on Equipes.Id equals Colab.EquipeId
                          select new {Equipes.NomeEquipe, Equipes.NomeGestor, Colab.Nome, Colab.Id}).ToList();
+
             // Se a equipe não tem colaboradores ela não vai aparecer,
+            // Mas ela pode ser vista na tela de "Gerenciar Equipes" 
            
             foreach(var item in lista)
             {

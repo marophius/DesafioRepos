@@ -42,4 +42,9 @@
     </EmbeddedResource>
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="wwwroot\pages\" />
+  </ItemGroup>
+
 </Project>
