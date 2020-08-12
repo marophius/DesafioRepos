@@ -1,0 +1,56 @@
+﻿@model List<Equipe>;
+@{
+    ViewData["Title"] = "Equipes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Gerenciar Equipes</h1>
+
+@if (TempData["MSG_S"] != null)
+{
+    <p class="alert alert-success">@TempData["MSG_S"]</p>
+}
+
+@if (Model.Count > 0)
+{
+
+
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Gestor</th>
+                    <th scope="col">Colaboradores</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (Equipe equipe in Model)
+                {
+                    <tr>
+                        <th scope="row">@equipe.Id</th>
+                        <td>@equipe.NomeEquipe</td>
+                        <td>
+                           @equipe.NomeGestor
+                        </td>
+                        <td>
+                            <a asp-action="AtualizarEquipe" asp-route-id="@equipe.Id" class="btn btn-secondary">Atualizar</a>
+                            <a asp-action="ExcluirEquipe" asp-route-id="@equipe.Id" class="btn btn-danger">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+
+}
+else
+{
+    <span>Nenhum registro cadastrado</span>
+}
+

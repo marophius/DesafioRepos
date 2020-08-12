@@ -1,0 +1,84 @@
+﻿@model Colaborador
+@{
+    ViewData["Title"] = "AtualizarColaborador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AtualizarColaborador</h1>
+
+
+<form  method="post">
+    <input type="hidden" asp-for="Id" />
+    <main role="main">
+
+        <section class="container" style="margin-top: 50px">
+            <div class="row">
+                <aside class="col-sm-6">
+                    
+                    <div id="code_register_1">
+                        <div class="card">
+                            <article class="card-body">
+                                @if (TempData["MSG_S"] != null)
+                                {
+                                    <p class="alert alert-success">@TempData["MSG_S"]</p>
+                                }
+                                <div class="form-row">
+                                    <div class="col form-group">
+                                        <label asp-for="Nome">Nome completo</label>
+                                        <input type="text" asp-for="Nome" class="form-control" placeholder="">
+                                        <span asp-validation-for="Nome"></span>
+                                    </div> <!-- form-group end.// -->
+                                    <div class="col form-group">
+                                        <label asp-for="DataNascimento">Nascimento</label>
+                                        <input type="text" asp-for="DataNascimento" class="form-control" placeholder="">
+                                        <span asp-validation-for="DataNascimento"></span>
+                                    </div> <!-- form-group end.// -->
+                                </div> <!-- form-row end.// -->
+                                <div class="form-group">
+                                    <label class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" asp-for="Genero" value="M">
+                                        <span class="form-check-label"> Masculino </span>
+                                    </label>
+                                    <label class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" asp-for="Genero" value="F">
+                                        <span class="form-check-label"> Feminino</span>
+                                    </label>
+                                    <label class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" asp-for="Genero" value="O">
+                                        <span class="form-check-label"> Outros</span>
+                                    </label>
+                                    <span asp-validation-for="Genero"></span>
+                                </div> <!-- form-group end.// -->
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="Telefone">Telefone</label>
+                                        <input type="text" asp-for="Telefone" class="form-control">
+                                        <span asp-validation-for="Telefone"></span>
+                                    </div> <!-- form-group end.// -->
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="EquipeId">Codigo da Equipe</label>
+                                        <input type="text" asp-for="EquipeId" class="form-control">
+                                        <span asp-validation-for="EquipeId"></span>
+                                    </div> <!-- form-group end.// -->
+                                </div> <!-- form-row.// -->
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label asp-for="Endereco">Endereco</label>
+                                        <input type="text" asp-for="Endereco" class="form-control">
+                                        <span asp-validation-for="Endereco"></span>
+                                    </div> <!-- form-group end.// -->
+                                </div> <!-- form-row.// -->
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block"> Salvar </button>
+                                </div> <!-- form-group// -->
+                            </article> <!-- card-body end .// -->
+                        </div> <!-- card.// -->
+
+                    </div> <!-- code-wrap.// -->
+                </aside>
+            </div>
+        </section>
+    </main>
+
+</form>

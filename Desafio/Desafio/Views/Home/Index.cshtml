@@ -1,0 +1,56 @@
+﻿@model List<Desafio.ViewModel.HomeIndexViewModel>
+<h1>Equipes</h1>
+
+
+@if (TempData["MSG_S"] != null)
+{
+    <p class="alert alert-success">@TempData["MSG_S"]</p>
+}
+
+@if (Model.Count > 0)
+{
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Equipe</th>
+                <th>Gestor da Equipe</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Desafio.ViewModel.HomeIndexViewModel item in Model)
+            {
+            <tr>
+                <td>@item.ColaboradorNome </td>
+                <td>@item.EquipeNome</td>
+                <td>@item.GestorNome</td>
+                <td>
+                    <a asp-action="ExcluirColaborador" asp-route-id="@item.ColaboradorId" class="btn btn-danger" style="color: white;"><strong>X</strong> Excluir</a>
+                    <a asp-action="AtualizarColaborador" asp-route-id="@item.ColaboradorId" class="btn btn-primary" style="color: white;">Atualizar</a> |
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+    @*<div class="row">
+            @foreach (Desafio.ViewModel.HomeIndexViewModel hm in Model)
+            {
+            <div class="card col-md-3 mr-1" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Equipe: @Html.DisplayFor(modelItem => hm.EquipeNome)</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Gestor: @Html.DisplayFor(modelItem => hm.GestorNome)</h6>
+                    <p class="card-text"> @Html.DisplayFor(modelItem => hm.ColaboradorNome)</p>
+                    <a href="#" class="btn btn-primary">Atualizar</a>
+                    <a href="#" class="btn btn-danger">Excluir</a>
+                </div>
+            </div>
+            }
+        </div>
+        }*@
+}
+else
+{
+< span > Nenhum registro cadastrado</ span >
+}
